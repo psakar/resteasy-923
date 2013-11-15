@@ -1,32 +1,31 @@
 # RESTEASY-923#
 
-run
+To download AS into target directory and use it for test run
 
-  mvn verify
-
-to download AS into target directory and use it for test
+    mvn verify
 
 To use existing AS installation run
 
-  mvn verify -Djboss.home=...
+    mvn verify -Djboss.home=...
 
 To use existing running AS installation run
 
-  mvn verify -Djboss.home=... -DallowConnectingToRunningServer=true
+    mvn verify -Djboss.home=... -DallowConnectingToRunningServer=true
 
 To connect to AS running on different address:port then defualt localhost:8080
 
-  -Djboss.bind.address=... -Djboss.bind.port=...
+    -Djboss.bind.address=... -Djboss.bind.port=...
 
 
 Current error
 =============
+```
 Caused by: javax.validation.ConstraintDeclarationException:
 	Only the root method of an overridden method in an inheritance hierarchy may be annotated with parameter constraints,
 	but there are parameter constraints defined at all of the following overridden methods:
 		ConstrainedMethod [location=UserResource$$$view1#register(), parameterMetaData=[ParameterMetaData [location=UserResource$$$view1#register(0)], name=arg0], constraints=[NotNull], isCascading=false], ParameterMetaData [location=UserResource$$$view1#register(1)], name=arg1], constraints=[], isCascading=false]], hasParameterConstraints=true]
 		ConstrainedMethod [location=UserResource#register(), parameterMetaData=[ParameterMetaData [location=UserResource#register(0)],                 name=arg0], constraints=[NotNull], isCascading=false], ParameterMetaData [location=UserResource#register(1)],         name=arg1], constraints=[], isCascading=false]], hasParameterConstraints=true]
-
+```
 
 
 Manual test
